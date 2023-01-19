@@ -13,7 +13,6 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        /** Import PP Mori into sans */
         sans: ['PP Mori', 'sans-serif', ...defaultTheme.fontFamily.sans],
       }
     },

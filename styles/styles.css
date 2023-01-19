@@ -2,64 +2,85 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import Recoleta */
 @font-face {
-    font-family: 'PP Mori';
-    src: url('../public/fonts/PPMori-Regular.woff2') format('woff2'),
-        url('../public/fonts/PPMori-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Recoleta";
+  src: url("../public/fonts/Recoleta-Bold.ttf") format("ttf"),
+    url("../public/fonts/Recoleta-Bold.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'PP Mori';
-    src: url('../public/fonts/PPMori-RegularItalic.woff2') format('woff2'),
-        url('../public/fonts/PPMori-RegularItalic.woff') format('woff');
-    font-weight: normal;
-    font-style: italic;
-    font-display: swap;
+  font-family: "PP Mori";
+  src: url("../public/fonts/PPMori-Regular.woff2") format("woff2"),
+    url("../public/fonts/PPMori-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'PP Mori';
-    src: url('../public/fonts/PPMori-SemiBold.woff2') format('woff2'),
-        url('../public/fonts/PPMori-SemiBold.woff') format('woff');
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
+  font-family: "PP Mori";
+  src: url("../public/fonts/PPMori-RegularItalic.woff2") format("woff2"),
+    url("../public/fonts/PPMori-RegularItalic.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'PP Mori';
-    src: url('../public/fonts/PPMori-SemiBoldItalic.woff2') format('woff2'),
-        url('../public/fonts/PPMori-SemiBoldItalic.woff') format('woff');
-    font-weight: 600;
-    font-style: italic;
-    font-display: swap;
+  font-family: "PP Mori";
+  src: url("../public/fonts/PPMori-SemiBold.woff2") format("woff2"),
+    url("../public/fonts/PPMori-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'PP Mori';
-    src: url('../public/fonts/PPMori-ExtralightItalic.woff2') format('woff2'),
-        url('../public/fonts/PPMori-ExtralightItalic.woff') format('woff');
-    font-weight: 100;
-    font-style: italic;
-    font-display: swap;
+  font-family: "PP Mori";
+  src: url("../public/fonts/PPMori-SemiBoldItalic.woff2") format("woff2"),
+    url("../public/fonts/PPMori-SemiBoldItalic.woff") format("woff");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'PP Mori';
-    src: url('../public/fonts/PPMori-Extralight.woff2') format('woff2'),
-        url('../public/fonts/PPMori-Extralight.woff') format('woff');
-    font-weight: 100;
-    font-style: normal;
-    font-display: swap;
+  font-family: "PP Mori";
+  src: url("../public/fonts/PPMori-ExtralightItalic.woff2") format("woff2"),
+    url("../public/fonts/PPMori-ExtralightItalic.woff") format("woff");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
 }
 
+@font-face {
+  font-family: "PP Mori";
+  src: url("../public/fonts/PPMori-Extralight.woff2") format("woff2"),
+    url("../public/fonts/PPMori-Extralight.woff") format("woff");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
 
+/* Small scrollbar */
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
 
-.animate-gradient {
-  background: linear-gradient(to right, #FDF4E3, #F9A01B, #FDF4E3);
+::-webkit-scrollbar-track {
+  background: #f1f1f100;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(252, 175, 123, 0.561);
+}
+
+.fancy-bg {
+  background: linear-gradient(to right, #fdf4e3, #f9a01b, #fdf4e3);
   background-size: 400% auto;
   background-clip: text;
   -webkit-background-clip: text;
@@ -67,21 +88,25 @@
   animation: animateGradient 10s ease-in-out infinite;
 }
 
-@keyframes animateGradient {
-    0% {
-      background-position: 0% 50%;
-    }
-    25% {
-      background-position: 100% 50%;
-    }
-    50% {
-      background-position: 200% 50%;
-    }
-    75% {
-      background-position: 300% 50%;
-    }
-    100% {
-      background-position: 400% 50%;
-    }
-  }
+html {
+  scroll-behavior: smooth;
+  background-color: #000;
+}
 
+@keyframes animateGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 100% 50%;
+  }
+  50% {
+    background-position: 200% 50%;
+  }
+  75% {
+    background-position: 300% 50%;
+  }
+  100% {
+    background-position: 400% 50%;
+  }
+}

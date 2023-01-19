@@ -3,8 +3,10 @@ import { Html, Head, Main, NextScript } from 'next/document'
 export default function Document() {
   return (
     <Html lang="en">
-      <Head />
-      <body className="bg-black">
+      <Head>
+        <link rel="stylesheet" href="https://unpkg.com/mouse-follower@1/dist/mouse-follower.min.css" />
+      </Head>
+      <body>
         <Main />
         <NextScript />
       </body>
