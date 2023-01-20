@@ -66,17 +66,16 @@
   font-display: swap;
 }
 
-/* Small scrollbar */
 ::-webkit-scrollbar {
   width: 0.5rem;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f100;
+  background: rgb(249 250 251);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(252, 175, 123, 0.561);
+  background: rgb(23 23 23);
 }
 
 .fancy-bg {
@@ -90,7 +89,10 @@
 
 html {
   scroll-behavior: smooth;
-  background-color: #000;
+  /* navy blue */
+  /* --color-primary: rgb(249 250 251); */
+  --color-primary: rgb(0 0 0);
+  background-color: var(--color-primary);
 }
 
 @keyframes animateGradient {
