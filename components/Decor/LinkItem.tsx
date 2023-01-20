@@ -7,8 +7,9 @@ interface LinkProps {
     href: string;
 }
 
-// Create a magnet link that follows the user's cursor to a certain point
-export default function MagneticLink({ children, href }: LinkProps) {
+export function MagneticLink({ children, href }: LinkProps) {
+    {/* yo */}
+}
     
 
 export default function LinkItem({ children, href }: LinkProps) {
