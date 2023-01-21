@@ -11,10 +11,10 @@ export default function Home() {
     <>
       <Container>
         <div>
-          <p className="text-lg md:text-xl">
+          <p className="text-md md:text-xl">
             Hello! You can call me <span className="underline underline-offset-2 text-orange-400">Elijah</span> or <span className="underline underline-offset-2 text-orange-400">Liya</span>. I&apos;m a
           </p>
-          <h1 className="text-6xl md:text-7xl font-[Recoleta]">
+          <h1 className="text-5xl md:text-7xl font-black playfair lg:font-[Recoleta]">
             Front-end Developer<span className="text-xs md:text-sm font-sans">(somewhat)</span>
           </h1>
         </div>

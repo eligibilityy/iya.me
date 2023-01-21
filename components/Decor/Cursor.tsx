@@ -37,7 +37,7 @@ export default function Cursor() {
 
     return (
         <motion.div
-            className="bg-orange-400 h-3 w-3 rounded-full fixed top-0 left-0 pointer-events-none"
+            className="bg-orange-400 h-3 w-3 rounded-full fixed top-0 left-0 pointer-events-none opacity-0 xl:opacity-100"
             variants={variants}
             animate={animate}
             transition={{ ease: 'backOut', duration: 0.2 }}

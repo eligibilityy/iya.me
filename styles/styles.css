@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&display=swap');
+.playfair {
+  font-family: 'Playfair Display', serif;
+}
+
 /* Import Recoleta */
 @font-face {
   font-family: "Recoleta";
@@ -91,7 +96,7 @@ html {
   scroll-behavior: smooth;
   /* navy blue */
   /* --color-primary: rgb(249 250 251); */
-  --color-primary: rgb(0 0 0);
+  --color-primary: rgb(23 23 23);
   background-color: var(--color-primary);
 }
 
