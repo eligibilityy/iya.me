@@ -1,17 +1,43 @@
-import Container from "@/components/Content/Container";
 import { Section, ReversedSection } from "@/components/Content/Section";
 import Link from "next/link";
 import { ReactNode } from "react";
+import { IconType } from "react-icons";
+import {
+    SiTypescript,
+    SiJavascript,
+    SiHtml5,
+    SiCss3,
+    SiSass,
+    SiTailwindcss,
+    SiReact,
+    SiNextdotjs,
+    SiSvelte,
+    SiNodedotjs,
+    SiPython
+} from "react-icons/si";
 
+interface Props {
+    name: string;
+    icon: IconType;
+}
+
+export function ProgramItem({ name, icon }: Props) {
+    return (
+        <li className="flex items-center space-x-2 rounded-md px-4">
+            <span>{icon({ className: 'h-5 w-5' })}</span>
+            <span className="font-bold">{name}</span>
+        </li>
+    )
+}
 
 export default function Info() {
     return (
-        <Container>
-            <div className="flex flex-col lg:w-3/4 p-3">
+        <>
+            <div className="flex flex-col lg:w-3/4 gap-2">
                 <div className="flex flex-col justify-center">
                     <p className="text-orange-400">About Me</p>
-                    <h1 className="text-4xl md:text-6xl font-bold playfair lg:font-[Recoleta]">
-                        Hello, I&apos;m eli
+                    <h1 className="text-4xl md:text-6xl font-bold font-[Recoleta]">
+                        Hello, I&apos;m Eli.
                     </h1>
                 </div>
                 <Section title="1 - Intro">
@@ -22,20 +48,30 @@ export default function Info() {
                         I enjoy certain games like Brawlhalla, OMORI, Minecraft, rhythm games like Quaver, osu!, FNF, etc. I&apos;ve been watching a lot of Youtube lately, especially OfflineTV; I think I found my love for their content again.
                     </p>
                 </Section>
-                {/* <ReversedSection title="2 - Tech">
+                <ReversedSection title="2 - Languages & Tech">
                     <p className="text-md lg:text-xl">
-                        When it comes to my stack, I mostly use Next.js and Typescript. It&apos; what I&apos; most comfortable with, but I still have a lot to learn.
+                        As of now, I am putting most focus into learning Typescript but I do know some Python. I am taking a bunch of free online courses, and I&apos;m trying to learn as much as I can.
                     </p>
-                    <p className="text-md lg:text-xl">
-                        So far though, all the stuff I&apos;ve messed around with is listed: {' '}<Link href="https://nextjs.org" className="underline underline-offset-2 hover:no-underline">
-                            Next.js
-                        </Link>{''}, {' '}<Link href="https://reactjs.org" className="underline underline-offset-2 hover:no-underline">React</Link>
+                    <p className="text-2xl flex justify-center font-bold font-[Recoleta]">
+                        Stuff Ive messed around with:
                     </p>
-                </ReversedSection> */}
+                    <div className="flex items-center justify-center">
+                        <div className="grid grid-cols-2 sm:grid-cols-4 auto-cols-auto gap-4 w-3/4">
+                            <ProgramItem icon={SiPython} name="Python" />
+                            <ProgramItem icon={SiTypescript} name="Typescript" />
+                            <ProgramItem icon={SiJavascript} name="Javascript" />
+                            <ProgramItem icon={SiHtml5} name="HTML" />
+                            <ProgramItem icon={SiCss3} name="CSS" />
+                            <ProgramItem icon={SiSass} name="Sass" />
+                            <ProgramItem icon={SiTailwindcss} name="TailwindCSS" />
+                            <ProgramItem icon={SiReact} name="React.js" />
+                            <ProgramItem icon={SiNextdotjs} name="Next.js" />
+                            <ProgramItem icon={SiSvelte} name="Svelte" />
+                            <ProgramItem icon={SiNodedotjs} name="Node.js" />
+                        </div>
+                    </div>
+                </ReversedSection>
             </div>
-            <Link href="/" className="text-lg md:text-4xl underline underline-offset-2 hover:no-underline">
-                Go back home
-            </Link>
-        </Container>
+        </>
     )
 }

@@ -1,8 +1,17 @@
+import 'nprogress/nprogress.css'
 import '@/styles/styles.css'
+import '@/public/fonts/css/fonts.css'
+
+import NProgress from 'nprogress'
 import type { AppProps } from 'next/app'
 import { AnimatePresence, motion } from 'framer-motion'
-import { useRouter } from 'next/router'
+import { useRouter, Router } from 'next/router'
 import Cursor from '@/components/Decor/Cursor'
+import Navbar from '@/components/Navbar/Navbar'
+
+Router.events.on('routeChangeStart', () => NProgress.start())
+Router.events.on('routeChangeComplete', () => NProgress.done())
+Router.events.on('routeChangeError', () => NProgress.done())
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter()
@@ -28,9 +37,12 @@ export default function App({ Component, pageProps }: AppProps) {
             clipPath: 'polygon(100% 0, 100% 0, 100% 100%, 100% 100%)'
           },
         }}
-        className="overflow-hidden"
+        className="bg-gray-50 flex flex-col w-full min-h-screen items-center mx-auto px-8"
       >
-        <Component {...pageProps} />
+          <Navbar />
+          <main className='flex items-center justify-center mx-auto py-20'>
+          <Component {...pageProps} />
+          </main>
       </motion.div>
       <Cursor />
     </AnimatePresence>

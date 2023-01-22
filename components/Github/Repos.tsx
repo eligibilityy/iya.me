@@ -40,9 +40,9 @@ export default function Repos({ username: username }: { username: string }) {
         )
     } else {
         return (
-            <div className="flex flex-col relative">
+            <div className="flex flex-col relative w-3/6 mt-3">
                 {repos.map(repo => (
-                    <Link href={repo.link} key={repo.repo} passHref rel='noreferrer'>
+                    <Link href={repo.link} key={repo.repo} passHref rel='noreferrer' target="_blank">
                         <motion.div
                             whileHover={{
                                 scale: 1.05,
@@ -55,14 +55,14 @@ export default function Repos({ username: username }: { username: string }) {
                         >
                             <div>
                                 <div className="flex flex-1 text-left items-center space-x-2">
-                                    <span className='my-auto leading-none font-bold playfair lg:font-[Recoleta] text-xl'>{repo.repo}</span>
+                                    <span className='my-auto leading-none font-bold font-[Recoleta] text-xl'>{repo.repo}</span>
     
                                     <Link href={repo.link}
                                         target="_blank"
                                         rel="noreferrer"
-                                        className="text-xl font-semibold playfair lg:font-[Recoleta]"
+                                        className="text-xl font-semibold font-[Recoleta]"
                                     >
-                                        <span className="flex items-center space-x-2 text-sm">
+                                        <span className="flex items-center justify-center space-x-2 text-sm">
                                             <span className="space-x-1  ">
                                                 <svg xmlns="http://www.w3.org/2000/svg" className='inline h-5 w-5' fill="currentcolor" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><path d="M132.4,190.7l50.4,32c6.5,4.1,14.5-2,12.6-9.5l-14.6-57.4a8.7,8.7,0,0,1,2.9-8.8l45.2-37.7c5.9-4.9,2.9-14.8-4.8-15.3l-59-3.8a8.3,8.3,0,0,1-7.3-5.4l-22-55.4a8.3,8.3,0,0,0-15.6,0l-22,55.4a8.3,8.3,0,0,1-7.3,5.4L31.9,94c-7.7.5-10.7,10.4-4.8,15.3L72.3,147a8.7,8.7,0,0,1,2.9,8.8L61.7,209c-2.3,9,7.3,16.3,15,11.4l46.9-29.7A8.2,8.2,0,0,1,132.4,190.7Z" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path></svg>
                                                 <span>{repo.stars}</span>

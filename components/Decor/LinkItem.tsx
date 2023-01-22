@@ -1,16 +1,11 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ReactNode, useState, useEffect } from "react";
+import { ReactNode } from "react";
 
 interface LinkProps {
     children: ReactNode;
     href: string;
-}
-
-export function MagneticLink({ children, href }: LinkProps) {
-    {/* yo */}
-}
-    
+}   
 
 export default function LinkItem({ children, href }: LinkProps) {
     return (
