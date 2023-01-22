@@ -6,16 +6,13 @@ module.exports = {
     removeDeprecatedGapUtilities: true,
     purgeLayersByDefault: true
   },
-  content: [
-    './pages/**/*.{js,jsx,ts,tsx}',
-    './components/**/*.{js,jsx,ts,tsx}',
-  ],
+  content: ['./pages/**/*.{js,jsx,ts,tsx}', './components/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
       fontFamily: {
-        sans: ['PP Mori', 'sans-serif', ...defaultTheme.fontFamily.sans],
+        sans: ['PP Mori', 'sans-serif', ...defaultTheme.fontFamily.sans]
       }
-    },
+    }
   },
   plugins: []
 }

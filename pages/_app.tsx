@@ -16,12 +16,12 @@ Router.events.on('routeChangeError', () => NProgress.done())
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter()
   return (
-    <AnimatePresence mode="wait" initial={false}>
+    <AnimatePresence mode='wait' initial={false}>
       <motion.div
         key={router.route}
-        initial="pageInitial"
-        animate="pageAnimate"
-        exit="pageExit"
+        initial='pageInitial'
+        animate='pageAnimate'
+        exit='pageExit'
         transition={{ duration: 0.75, ease: 'easeOut' }}
         variants={{
           pageInitial: {
@@ -35,14 +35,14 @@ export default function App({ Component, pageProps }: AppProps) {
           pageExit: {
             opacity: 1,
             clipPath: 'polygon(100% 0, 100% 0, 100% 100%, 100% 100%)'
-          },
+          }
         }}
-        className="bg-gray-50 flex flex-col w-full min-h-screen items-center mx-auto px-8"
+        className='bg-gray-50 flex flex-col w-full min-h-screen items-center mx-auto px-8 lg:px-20'
       >
-          <Navbar />
-          <main className='flex items-center justify-center mx-auto py-20'>
+        <Navbar />
+        <main className='flex flex-col items-center justify-center mx-auto pt-20 pb-12'>
           <Component {...pageProps} />
-          </main>
+        </main>
       </motion.div>
       <Cursor />
     </AnimatePresence>

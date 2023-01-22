@@ -1,0 +1,15 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo '✍ Linting and formatting, please be patient...'
+
+npx lint-staged ||
+(
+    echo '🚫 ESLint failed: please fix the errors and try again.';
+    false;
+)
+
+echo '🎉 Linting and formatting passed!'
+echo '🚀 Committing...'
+
+git add .
