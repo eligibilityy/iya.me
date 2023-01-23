@@ -67,7 +67,7 @@ export default function Lanyard() {
                           title={game.assets.large_text ? game.assets.large_text : 'Big caption'}
                           width={60}
                           height={60}
-                          className='rounded-md pointer-events-none'
+                          className='rounded-md pointer-events-none' // skipcq: JS-0394
                         />
 
                         {game.assets.small_image ? (
@@ -84,7 +84,7 @@ export default function Lanyard() {
                               title={game.assets.small_text ? game.assets.small_text : 'Small caption'}
                               width={20}
                               height={20}
-                              className='rounded-full absolute -bottom-1.5 -right-1.5 text-neutral-900 transition-colors duration-300 bg-neutral-200  ease-in-out p-0.5'
+                              className='rounded-full absolute -bottom-1.5 -right-1.5 text-neutral-900 transition-colors duration-300 bg-neutral-200  ease-in-out p-0.5' // skipcq: JS-0394
                             />
                           </figcaption>
                         ) : null}
