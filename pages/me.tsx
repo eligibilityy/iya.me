@@ -32,7 +32,7 @@ interface SocialProps {
 
 export function SocialLink({ icon, href }: SocialProps) {
   return (
-    // skipqc: JS-0394
+    // skipcq: JS-0394
     <Link href={href} className='mr-2 last-of-type:mr-0'>
       <motion.span
         whileHover={{

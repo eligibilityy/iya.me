@@ -9,6 +9,7 @@ export default function Lanyard() {
   const game = lanyard?.activities.find((activity: Activity) => activity.type === 0)
 
   return (
+    // skipcq: JS-0424
     <>
       {lanyard && (
         <div className='flex items-center select-none'>
@@ -57,7 +58,7 @@ export default function Lanyard() {
                         <Image
                           src={
                             game.assets.large_image.includes('https')
-                              ? 'https:/' + game.assets.large_image.split('https')[1]
+                              ? `https:/${game.assets.large_image.split('https')[1]}`
                               : `https://cdn.discordapp.com/app-assets/${BigInt(
                                   game.application_id as unknown as number
                                 ).toString()}/${game.assets.large_image}.png`
@@ -66,7 +67,7 @@ export default function Lanyard() {
                           title={game.assets.large_text ? game.assets.large_text : 'Big caption'}
                           width={60}
                           height={60}
-                          className='rounded-md pointer-events-none' // skipcq: JS-0394
+                          className='rounded-md pointer-events-none'
                         />
 
                         {game.assets.small_image ? (
@@ -74,7 +75,7 @@ export default function Lanyard() {
                             <Image
                               src={
                                 game.assets.small_image.includes('https')
-                                  ? 'https:/' + game.assets.small_image.split('https')[1]
+                                  ? `https:/${game.assets.small_image.split('https')[1]}`
                                   : `https://cdn.discordapp.com/app-assets/${BigInt(
                                       game.application_id as unknown as number
                                     ).toString()}/${game.assets.small_image}.png`
@@ -83,7 +84,7 @@ export default function Lanyard() {
                               title={game.assets.small_text ? game.assets.small_text : 'Small caption'}
                               width={20}
                               height={20}
-                              className='rounded-full absolute -bottom-1.5 -right-1.5 text-neutral-900 transition-colors duration-300 bg-neutral-200  ease-in-out p-0.5' // skipcq: JS-0394
+                              className='rounded-full absolute -bottom-1.5 -right-1.5 text-neutral-900 transition-colors duration-300 bg-neutral-200  ease-in-out p-0.5'
                             />
                           </figcaption>
                         ) : null}

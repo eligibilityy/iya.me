@@ -40,7 +40,7 @@ export default function App({ Component, pageProps }: AppProps) {
         className='bg-gray-50 flex flex-col w-full min-h-screen items-center mx-auto px-8 lg:px-20'
       >
         <Navbar />
-        <main className='flex flex-col my-auto mx-auto lg:items-center pb-12'>
+        <main className='flex flex-col my-auto mx-auto lg:items-start pb-12'>
           <Component {...pageProps} />
         </main>
       </motion.div>
