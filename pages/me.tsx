@@ -16,9 +16,9 @@ import {
 } from 'react-icons/si'
 import { GithubLogo, TwitterLogo, SpotifyLogo, YoutubeLogo } from 'phosphor-react'
 import Link from 'next/link'
-import { ReactNode } from 'react'
 import Lanyard from '@/components/Discord/Lanyard'
 import Footer from '@/components/Content/Footer'
+import { ReactNode } from 'react'
 
 interface ItemProps {
   name: string
@@ -32,7 +32,8 @@ interface SocialProps {
 
 export function SocialLink({ icon, href }: SocialProps) {
   return (
-    <Link href={href} className='mr-3 last-of-type:mr-0'>
+    // skipqc: JS-0394
+    <Link href={href} className='mr-2 last-of-type:mr-0'>
       <motion.span
         whileHover={{
           scale: 1.1,
@@ -61,22 +62,21 @@ export function ProgramItem({ name, icon }: ItemProps) {
 export default function Info() {
   return (
     <>
-      <div className='w-full space-y-3'>
+      <div className='w-full space-y-3 mt-10'>
         <div className='relative flex'>
           <div>
             <p className='text-orange-400'>About Me</p>
             <h1 className='text-4xl md:text-6xl font-bold font-[Recoleta]'>Hello, I&apos;m Eli.</h1>
-          </div>
-          {/* Social Links with Icons */}
-          <div className='flex items-center ml-auto max-w-max'>
-            <span className='sr-only'>My social links</span>
-            <SocialLink href='https://github.com/eligibilityy' icon={<GithubLogo size={32} />} />
-            <SocialLink href='https://twitter.com/initngbuwan' icon={<TwitterLogo size={32} />} />
-            <SocialLink href='https:/youtube.com/@liyaplus' icon={<YoutubeLogo size={32} />} />
-            <SocialLink
-              href='https://open.spotify.com/user/6s7egqw2p3cpjni6er2mocpsk?si=66352599a6fd45a7'
-              icon={<SpotifyLogo size={32} />}
-            />
+            <div className='flex items-center text-2xl md:text-3xl max-w-max'>
+              <span className='sr-only'>My social links</span>
+              <SocialLink href='https://github.com/eligibilityy' icon={<GithubLogo />} />
+              <SocialLink href='https://twitter.com/initngbuwan' icon={<TwitterLogo />} />
+              <SocialLink href='https:/youtube.com/@liyaplus' icon={<YoutubeLogo />} />
+              <SocialLink
+                href='https://open.spotify.com/user/6s7egqw2p3cpjni6er2mocpsk?si=66352599a6fd45a7'
+                icon={<SpotifyLogo />}
+              />
+            </div>
           </div>
         </div>
         <Section title='1 - Intro'>

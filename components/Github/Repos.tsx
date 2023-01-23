@@ -1,7 +1,5 @@
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
-import { GitFork, GithubLogo, Star } from 'phosphor-react'
-import { BiGitRepoForked, BiStar } from 'react-icons/bi'
 import { motion } from 'framer-motion'
 
 interface Repo {
@@ -20,14 +18,14 @@ export default function Repos({ username: username }: { username: string }) {
     fetch(`https://gh-pinned.nxl.sh/api/user/${username}`)
       .then((res) => res.json())
       .then((data) => {
-        const repos = data.map((repo: any) => ({
+        const pinnedRepos = data.map((repo: Repo) => ({
           link: repo.link,
           stars: repo.stars,
           forks: repo.forks,
           repo: repo.repo,
           description: repo.description
         }))
-        setRepos(repos)
+        setRepos(pinnedRepos)
         setLoading(false)
       })
   }, [username])
@@ -57,14 +55,9 @@ export default function Repos({ username: username }: { username: string }) {
                 <div className='flex flex-1 text-left items-center space-x-2'>
                   <span className='my-auto leading-none font-bold font-[Recoleta] text-xl'>{repo.repo}</span>
 
-                  <Link
-                    href={repo.link}
-                    target='_blank'
-                    rel='noreferrer'
-                    className='text-xl font-semibold font-[Recoleta]'
-                  >
-                    <span className='flex items-center justify-center space-x-2 text-sm'>
-                      <span className='space-x-1  '>
+                  <Link href={repo.link} target='_blank' rel='noreferrer'>
+                    <span className='flex items-center justify-center space-x-2 text-sm font-semibold font-[Recoleta]'>
+                      <span className='space-x-1 flex items-center'>
                         <svg
                           xmlns='http://www.w3.org/2000/svg'
                           className='inline h-5 w-5'
@@ -84,7 +77,7 @@ export default function Repos({ username: username }: { username: string }) {
                         <span>{repo.stars}</span>
                       </span>
 
-                      <span className='space-x-1'>
+                      <span className='space-x-1 flex items-center'>
                         <svg
                           xmlns='http://www.w3.org/2000/svg'
                           className='inline h-5 w-5'

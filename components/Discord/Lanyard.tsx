@@ -6,16 +6,15 @@ export default function Lanyard() {
   const ID = '997063531763617803'
   const { data: lanyard } = useLanyard(ID)
 
-  const activity = lanyard?.activities.find((activity: Activity) => activity.type === 0)
+  const game = lanyard?.activities.find((activity: Activity) => activity.type === 0)
 
   return (
     <>
       {lanyard && (
         <div className='flex items-center select-none'>
           {lanyard.listening_to_spotify ? (
-            <div className='flex flex-row items-center justify-center space-x-2 p-3 bg-gray-200/50 rounded-md'>
+            <div className='flex flex-row items-center justify-center space-x-2 px-1 p-3 bg-gray-200/50 rounded-md'>
               <Link
-                className='flex flex-row items-center'
                 href={`https://open.spotify.com/track/${lanyard.spotify && lanyard.spotify.track_id}`}
                 target='_blank'
               >
@@ -24,9 +23,9 @@ export default function Lanyard() {
                     placeholder='blur'
                     blurDataURL={lanyard.spotify?.album_art_url as string}
                     src={lanyard.spotify?.album_art_url as string}
-                    width={50}
-                    height={50}
-                    className='rounded-md'
+                    width={60}
+                    height={60}
+                    className='rounded-md' // skipcq: JS-0394
                     alt='Album Art'
                   />
 
@@ -50,41 +49,41 @@ export default function Lanyard() {
             </div>
           ) : (
             <>
-              {activity ? (
+              {game ? (
                 <>
-                  {activity.assets && (
+                  {game.assets && (
                     <div className='flex flex-row items-center justify-center space-x-2 p-3 bg-gray-200/50 rounded-md'>
                       <figure className='flex flex-row items-end relative'>
                         <Image
                           src={
-                            activity.assets.large_image.includes('https')
-                              ? 'https:/' + activity.assets.large_image.split('https')[1]
+                            game.assets.large_image.includes('https')
+                              ? 'https:/' + game.assets.large_image.split('https')[1]
                               : `https://cdn.discordapp.com/app-assets/${BigInt(
-                                  activity.application_id as unknown as number
-                                ).toString()}/${activity.assets.large_image}.png`
+                                  game.application_id as unknown as number
+                                ).toString()}/${game.assets.large_image}.png`
                           }
-                          alt={activity.assets.large_text ? activity.assets.large_text : 'Big caption'}
-                          title={activity.assets.large_text ? activity.assets.large_text : 'Big caption'}
-                          width={50}
-                          height={50}
-                          className='rounded-md pointer-events-none'
+                          alt={game.assets.large_text ? game.assets.large_text : 'Big caption'}
+                          title={game.assets.large_text ? game.assets.large_text : 'Big caption'}
+                          width={60}
+                          height={60}
+                          className='rounded-md pointer-events-none' // skipcq: JS-0394
                         />
 
-                        {activity.assets.small_image ? (
+                        {game.assets.small_image ? (
                           <figcaption>
                             <Image
                               src={
-                                activity.assets.small_image.includes('https')
-                                  ? 'https:/' + activity.assets.small_image.split('https')[1]
+                                game.assets.small_image.includes('https')
+                                  ? 'https:/' + game.assets.small_image.split('https')[1]
                                   : `https://cdn.discordapp.com/app-assets/${BigInt(
-                                      activity.application_id as unknown as number
-                                    ).toString()}/${activity.assets.small_image}.png`
+                                      game.application_id as unknown as number
+                                    ).toString()}/${game.assets.small_image}.png`
                               }
-                              alt={activity.assets.small_text ? activity.assets.small_text : 'Small caption'}
-                              title={activity.assets.small_text ? activity.assets.small_text : 'Small caption'}
+                              alt={game.assets.small_text ? game.assets.small_text : 'Small caption'}
+                              title={game.assets.small_text ? game.assets.small_text : 'Small caption'}
                               width={20}
                               height={20}
-                              className='rounded-full absolute -bottom-1.5 -right-1.5 text-neutral-900 transition-colors duration-300 bg-neutral-200  ease-in-out p-0.5'
+                              className='rounded-full absolute -bottom-1.5 -right-1.5 text-neutral-900 transition-colors duration-300 bg-neutral-200  ease-in-out p-0.5' // skipcq: JS-0394
                             />
                           </figcaption>
                         ) : null}
@@ -92,20 +91,14 @@ export default function Lanyard() {
 
                       <div className='flex flex-col text-sm text-neutral-900'>
                         <p className='font-bold truncate'>
-                          {activity.assets.small_text ? (
-                            activity.assets.small_text
+                          {game.assets.small_text ? (
+                            game.assets.small_text
                           ) : (
-                            <>
-                              {activity.assets.large_text ? (
-                                activity.assets.large_text
-                              ) : (
-                                <>{activity.name ? activity.name : null}</>
-                              )}
-                            </>
+                            <>{game.assets.large_text ? game.assets.large_text : <>{game.name ? game.name : null}</>}</>
                           )}
                         </p>
                         <p className='truncate'>
-                          {activity.state ? activity.state : <>{activity.details ? activity.details : null}</>}
+                          {game.state ? game.state : <>{game.details ? game.details : null}</>}
                         </p>
                       </div>
                     </div>
