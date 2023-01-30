@@ -29,7 +29,7 @@
     "eslint": "8.32.0",
     "eslint-config-next": "13.1.4",
     "framer-motion": "^8.5.2",
-    "next": "13.1.4",
+    "next": "13.1.6",
     "next-sitemap": "^3.1.47",
     "nprogress": "^0.2.0",
     "phosphor-react": "^1.4.1",
